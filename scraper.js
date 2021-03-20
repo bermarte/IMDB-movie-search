@@ -10,8 +10,23 @@ const {
 const searchUrl = 'https://www.imdb.com/find?s=tt&ttype=ft&ref_=fn_ft&q=';
 const movieUrl = 'https://www.imdb.com/title/';
 
+//cache
+const searchCache = {};
+const movieCache = {};
+
 function searchMovies(searchTerm) {
-    //request
+    /*
+    cache: is there a searchTerm in the cache? @1:05:00
+    the first time a term is searched we will do the scraping and
+    return that, but we will store it in memory. The second time we
+    will search for that term, we will immediately return that term from the cache memory 
+    */
+    if (searchCache[searchTerm]){
+        console.log('Serving from cache:', searchTerm);
+        return Promise.resolve(searchCache[searchTerm])
+    }
+
+    //otherwise make the request
     return fetch(`${searchUrl}${searchTerm}`)
         //responseText  is in HTML
         .then(response => response.text())
@@ -23,6 +38,7 @@ function searchMovies(searchTerm) {
                 const $image = $element.find('td a img');
                 const $title = $element.find('td.result_text a');
                 const imdbID = $title.attr('href').match(/title\/(.*)\//)[1];
+
                 const movie = {
                     image: $image.attr('src'),
                     title: $title.text(),
@@ -31,11 +47,20 @@ function searchMovies(searchTerm) {
                 movies.push(movie);
             });
 
+            //cache the search term
+            searchCache[searchTerm] = movies;
+
             return movies;
         });
 };
 
 function getMovie(imdbID) {
+    //cache
+    if (movieCache[imdbID]){
+        console.log('Serving from cache:', imdbID);
+        return Promise.resolve(movieCache[imdbID]);
+    }
+
     return fetch(`${movieUrl}${imdbID}`)
         .then(response => response.text())
         .then(body => {
@@ -103,7 +128,7 @@ function getMovie(imdbID) {
             const trailer = $('a.video-modal').attr('href');
             
 
-            return {
+            const movie = {
                 imdbID,
                 title,
                 rating,
@@ -120,6 +145,11 @@ function getMovie(imdbID) {
                 companies,
                 trailer: `https://www.imdb.com${trailer}`
             };
+
+            //cache
+            movieCache[imdbID] = movie;
+
+            return movie;
         });
 }
 
