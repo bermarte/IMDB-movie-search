@@ -34,6 +34,7 @@ function showResults(results){
     li.appendChild(img);
     img.src = movie.image;
     const a = document.createElement('a');
+    a.classList.add("ml-2");
     a.textContent = movie.title;
     a.href = 'movie.html?imdbID=' + movie.imdbID;
     li.appendChild(a);
