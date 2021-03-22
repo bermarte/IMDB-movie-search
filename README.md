@@ -79,11 +79,16 @@ Use the IDMB Movie Website to scrape information used to build a basic REST API 
 
 ---
 
-## how to run the project
+## How to run the project
 
 - install the dependencies `npm install`
 - run the server for the back-end `npm run start` 
   - the server will be available at http://localhost:3000/
 - run the server for the front-end `npm run client`
   - the client will be available at http://localhost:8000/
+
+### Screenshot
+<p align="center">
+  <img src="https://github.com/bermarte/IMDB-movie-search/blob/master/planning/screenshot.png" alt="screenshot" width="700">
+</p>
 
