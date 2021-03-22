@@ -76,3 +76,12 @@ I decided to follow [this tutorial](https://www.youtube.com/watch?v=U0btOGPwrIY)
 </details>
 
 ---
+
+## how to run the project
+
+- install the dependencies `npm install`
+- run the server for the back-end `npm run start` 
+  - the server will be available at http://localhost:3000/
+- run the server for the front-end `npm run client`
+  - the client will be available at http://localhost:8000/
+
