@@ -4,6 +4,8 @@ For this week each of us is free to carry out some small project chosen (it coul
 
 I decided to follow [this tutorial](https://www.youtube.com/watch?v=U0btOGPwrIY) whch is available also on GitHub: [here](https://github.com/w3cj/imdb-scraper-server) you can find the code for the backend and [here](https://github.com/w3cj/imdb-scraper-client) the frontend.
 
+## Build a Web Scraper with Node.js and cheerio - IMDB Movie Search
+Use the IDMB Movie Website to scrape information used to build a basic REST API server, then build a simple front-end to interact with the server.
 
 <details>
 <summary>Steps</summary>
