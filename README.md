@@ -92,3 +92,10 @@ Use the IDMB Movie Website to scrape information used to build a basic REST API 
   <img src="https://github.com/bermarte/IMDB-movie-search/blob/master/planning/screenshot.png" alt="screenshot" width="700">
 </p>
 
+### Built With
+
+- [Visual studio code](https://code.visualstudio.com/)
+- [GitHub](https://github.com)
+- [JavaScript](https://www.javascript.com/)
+- [Node js](https://nodejs.org/en/)
+
